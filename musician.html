@@ -3,35 +3,38 @@
  <title>Musicians</title>
 <body>
 
-<h2>Musician Guess by</h2>
+<h2>Musician Guess by Fredrik</h2>
 
 <form>
-    <label for="form1_musician">Enter the secret musician name </label>
-    <input type ="password"  id="form1_password" name="John Lennon" min=10 max=50 step=2 value=30> <br>
+   <label for="secretMusician">Enter the secret musician name</label>
+   <input type="password" value="John Lennon" id="secretMusician"></input><br>
 
-    <label for="form1_check">Guess the musician </label>
-    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+   <label for ="guessField">Guess the musician</label>
+   <input type="text" id="guess"> <br>
 
-    <input type="button" onclick="checkGuess()" value="Check the guess">
+   <input type="button" onclick="checkGuess()" value="Check the guess">
 </form>
 
 
-<p id="result">This text will be replaced </p>
+<p id="result"></p>
 
 <script> 
-
+correct = 0
+wrong = 0
 function checkGuess (){
-    console.log("Guessing")
-    musician = document.getElementById("form1_musician").value
-    guess = document.getElementById("form1_check").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
-    
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
+    console.log("Checking guess")
+    secret = document.getElementById("secretMusician").value
+    guess = document.getElementById("guess").value
+
+    if (guess == secret) {
+        correct += 1
+        alert("You got it right.")
+    }else{
+        wrong += 1
+        alert("You got it wrong.")
     }
+    result.innerHTML = "Correct guesses: " + correct + "<br>" + "Wrong guesses: " + wrong
+
 }
 </script>
 
