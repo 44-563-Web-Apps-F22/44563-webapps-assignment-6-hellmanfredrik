@@ -38,5 +38,28 @@ function checkGuess (){
 }
 </script>
 
+<div>
+    <img id="pic" src="earth_worm.jpeg" width="100px" height="100px" onclick=swapImage()>
+<script>
+var useImage = 1
+function swapImage(){
+    switch (useImage){
+    case 1:
+        document.getElementById("pic").src = "leaf_insect.jpeg"
+        useImage +=1
+        break;
+    case 2:
+    document.getElementById("pic").src = "harvester_ant.jpeg"
+    useImage +=1
+        break;
+    case 3:
+    document.getElementById("pic").src = "earth_worm.jpeg"
+    useImage =1
+        break;
+    }
+}
+    </script>
+</div>
+
 </body>
 </html> 
