@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+ 
+<body>
+<title>Fredriks vacation</title>
+<h2>Fredrik selects a vacation</h2>
+
+
+
+<form>
+    <label for="air">Travel by air</label>
+    <input type ="checkbox" id="air" value="True"> <br>
+
+    <label for="domestic">Domestic</label>
+    <input type ="checkbox" id="domestic" value="True"> <br>
+
+    <label for="res">Resort</label>
+    <input type ="checkbox" id="res" value="False"> <br>
+
+    <input type="button" onclick="selectVacation()" value="Select a vacation">
+
+</form>
+
+
+<p id="result"> </p>
+
+<script> 
+
+my_vacation = {}
+function selectVacation (){
+    Object.keys(my_vacation).forEach(key => {
+    delete my_vacation[key];
+    })
+
+    air = document.getElementById("air").value
+    dom = document.getElementById("domestic").value
+    res = document.getElementById("res").value
+    out = document.getElementById("result")
+
+
+    out.innerHTML = my_vacation
+
+
+
+
+
+
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+</script>
+
+</body>
+</html> 
