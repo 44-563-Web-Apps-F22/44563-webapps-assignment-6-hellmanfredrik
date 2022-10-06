@@ -17,25 +17,65 @@
 
 
 <p id="result"></p>
+
 <script> 
 
-function getDiscount(){
-    val = document.getElementById("baseAmount").value
-    disc = document.getElementById("discount").value
-    out = document.getElementById("result")
+    function getDiscount(){
+        chooseOp();
+        val = document.getElementById("baseAmount").value
+        disc = document.getElementById("discount").value
+        out = document.getElementById("result")
+    
+        i = 1;
+        vals = []
+        while (i <= 5) {
+            discVal = (val * i) * (1-(disc/100))
+            vals.push(parseInt(discVal))
+            i += 1
+    
+        }
+    
+        out.innerHTML = "Discounted amounts for base " + val  +" are: "+ vals
+    
+    }
+    </script>
 
-    i = 1;
-    vals = []
-    while (i <= 5) {
-        discVal = (val * i) * (1-(disc/100))
-        vals.push(parseInt(discVal))
-        i += 1
+<form>
+    <input type="radio" id="times" name="color" onclick="chooseOp()"
+     value="times"   
+      checked >
+    <label for="times">*</label></br>
+  
+    <input type="radio" id="divide" name="color" onclick="chooseOp()" 
+       value="divide">
+    <label for="divide">/</label></br>
+  
+    <input type="radio" id="exponent" name="color" onclick="chooseOp()"   
+       value="green">
+    <label for="exponent">**</label></br>
+
+
+  </form>
+  <p id="resultMath"></p>
+
+<script>
+    function chooseOp() {
+        val = document.getElementById("baseAmount").value
+        disc = document.getElementById("discount").value
+        out = document.getElementById("resultMath")
+
+        if(document.getElementById("times").checked) {
+            out.innerHTML = val * disc
+        } 
+        if(document.getElementById("divide").checked) {
+            out.innerHTML = val / disc
+        } 
+        if(document.getElementById("exponent").checked) {
+            out.innerHTML = Math.pow(val,disc)
+        } 
+
 
     }
-
-    out.innerHTML = "Discounted amounts for base " + val  +" are: "+ vals
-
-}
 </script>
 
 </body>
