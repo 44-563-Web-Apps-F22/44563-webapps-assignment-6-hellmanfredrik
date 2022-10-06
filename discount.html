@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+ 
+<body>
+<title>Fredriks computations</title>
+<h2>Fredrik computes discounts</h2>
+
+<form>
+    <label for="baseAmount">Enter base amount</label>
+    <input type ="number" id="baseAmount" value=20> <br>
+
+    <label for="discount">Enter the discount percentage</label>
+    <input type ="number" id="discount"> <br>
+
+    <input type="button" onclick="getDiscount()" value="Apply discount">
+</form>
+
+
+<p id="result"></p>
+<script> 
+
+function getDiscount(){
+    val = document.getElementById("baseAmount").value
+    disc = document.getElementById("discount").value
+    out = document.getElementById("result")
+
+    i = 1;
+    vals = []
+    while (i <= 5) {
+        discVal = (val * i) * (1-(disc/100))
+        vals.push(parseInt(discVal))
+        i += 1
+
+    }
+
+    out.innerHTML = "Discounted amounts for base " + val  +" are: "+ vals
+
+}
+</script>
+
+</body>
+</html> 
