@@ -33,6 +33,11 @@ function checkGuess (){
         wrong += 1
         alert("You got it wrong.")
     }
+    if (wrong >= 3) {
+        alert("Sorry, game over.")
+        correct = 0
+        wrong = 0
+    }
     result.innerHTML = "Correct guesses: " + correct + "<br>" + "Wrong guesses: " + wrong
 
 }
