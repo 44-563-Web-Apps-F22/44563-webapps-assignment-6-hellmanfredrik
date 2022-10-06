@@ -18,11 +18,21 @@
     <input type ="checkbox" id="res" value="False"> <br>
 
     <input type="button" onclick="selectVacation()" value="Select a vacation">
+</form>
+<p id="result"> </p>
+<br>
+<form>
+    <label for="city">Enter a city</label>
+    <input type ="text" id="city" value="city"> <br>
 
+    <label for="price">Enter price</label>
+    <input type ="text" id="price" > <br>
+
+    <input type="button" onclick="updateVacation()" value="Update the vacation">
 </form>
 
 
-<p id="result"> </p>
+<p id="resultObject"> </p>
 
 <script> 
 
@@ -39,23 +49,16 @@ function selectVacation (){
 
 
     out.innerHTML = my_vacation
+}
 
-
-
-
-
-
-    console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
-    
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
-    }
+function updateVacation() {
+    city = document.getElementById("city").value
+    price = document.getElementById("price").value
+    out = document.getElementById("resultObject")
+    my_vacation["city"] = city
+    my_vacation["price"] = price
+    str = JSON.stringify(my_vacation);
+    out.innerHTML = str
 }
 </script>
 
